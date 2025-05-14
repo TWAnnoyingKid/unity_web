@@ -1,0 +1,212 @@
+[
+  {
+    "_id": {"$oid": "6706681fb60a975a0f91d9e4"},
+    "Image_matting": {"$oid": "670df1c59c6cf93371fb0688"},
+    "Image_matting_RMBG_2": {
+      "0": {"$oid": "673aec447ea23a084f134166"}
+    },
+    "asin": "B0BC1DD4WH",
+    "brand": "Maupvit",
+    "color_options": ["米色", "黑色", "深質樸橡木。", "深核桃色", "輕盈鄉村橡木", "仿古棕色", "仿古橡木藤", "水洗灰色", "白色", "黃色"],
+    "category": "chair",
+    "description": "Some other information about Chair1...",
+    "image": "https://m.media-amazon.com/images/I/81JsjAoQnSL._AC_UL1000_.jpg",
+    "images": ["https://raw.githubusercontent.com/TWAnnoyingKid/ARFurnitureAppDatabase/main/FurnitureInfoData/Chair/Chair1/Img/Chair.jpg"],
+    "name": "Office Chair",
+    "model_url": "https://raw.githubusercontent.com/TWAnnoyingKid/AR_Furniture_App/main/Chair1.glb",
+    "price_string": "999",
+    "size_options": ["61深 x 61寬 x 110高 公分"],
+    "star": "4.4",
+    "starNum": "1563 個評分",
+    "url": "https://shop.logis.com.tw/product_d.php?lang=tw&tb=1&id=13058"
+  },
+  {
+    "_id": {"$oid": "6706681fb60a975a0f91d9e5"},
+    "Image_matting": {"$oid": "670df1c59c6cf93371fb0688"},
+    "Image_matting_RMBG_2": {
+      "0": {"$oid": "673aec447ea23a084f134166"}
+    },
+    "asin": "B0BC1DD4WH",
+    "brand": "Maupvit2",
+    "color_options": ["米色", "黑色", "深質樸橡木。", "深核桃色", "輕盈鄉村橡木", "仿古棕色", "仿古橡木藤", "水洗灰色", "白色", "黃色"],
+    "category": "chair",
+    "description": "Some other information about Chair2...",
+    "image": "https://m.media-amazon.com/images/I/81JsjAoQnSL._AC_UL1000_.jpg",
+    "images": ["https://raw.githubusercontent.com/TWAnnoyingKid/ARFurnitureAppDatabase/main/FurnitureInfoData/Chair/Chair2/Img/Chair.jpg","https://raw.githubusercontent.com/TWAnnoyingKid/ARFurnitureAppDatabase/main/FurnitureInfoData/Chair/Chair2/Img/Chair2.jpg","https://raw.githubusercontent.com/TWAnnoyingKid/ARFurnitureAppDatabase/main/FurnitureInfoData/Chair/Chair2/Img/Chair3.jpg","https://raw.githubusercontent.com/TWAnnoyingKid/ARFurnitureAppDatabase/main/FurnitureInfoData/Chair/Chair2/Img/Chair4.jpg"],
+    "name": "Leather Chair",
+    "model_url": "https://raw.githubusercontent.com/TWAnnoyingKid/AR_Furniture_App/main/Chair2.glb",
+    "price_string": "5999",
+    "size_options": ["62深 x 62寬 x 93高 公分"],
+    "star": "4.4",
+    "starNum": "1563 個評分",
+    "url": "https://www.mrliving.com.tw/officechair-milan-leather-tan.html"
+  },
+  {
+    "_id": {"$oid": "6706681fb60a975a0f91d9e5"},
+    "Image_matting": {"$oid": "670df1c59c6cf93371fb0688"},
+    "Image_matting_RMBG_2": {
+      "0": {"$oid": "673aec447ea23a084f134166"}
+    },
+    "asin": "B0BC1DD4WH",
+    "brand": "Maupvit",
+    "color_options": ["米色", "黑色", "深質樸橡木。", "深核桃色", "輕盈鄉村橡木", "仿古棕色", "仿古橡木藤", "水洗灰色", "白色", "黃色"],
+    "category": "chair",
+    "description": "Some other information about Chair3...",
+    "image": "https://m.media-amazon.com/images/I/81JsjAoQnSL._AC_UL1000_.jpg",
+    "images": ["https://raw.githubusercontent.com/TWAnnoyingKid/ARFurnitureAppDatabase/main/FurnitureInfoData/Chair/Chair3/Img/199169_0.png","https://raw.githubusercontent.com/TWAnnoyingKid/ARFurnitureAppDatabase/main/FurnitureInfoData/Chair/Chair3/Img/199170_0.png","https://raw.githubusercontent.com/TWAnnoyingKid/ARFurnitureAppDatabase/main/FurnitureInfoData/Chair/Chair3/Img/199171_0.png"],
+    "name": "Lab Chair",
+    "model_url": "https://raw.githubusercontent.com/TWAnnoyingKid/AR_Furniture_App/main/Chair3.glb",
+    "price_string": "5999",
+    "size_options": ["61深 x 61寬 x 110高 公分"],
+    "star": "4.4",
+    "starNum": "1563 個評分",
+    "url": "https://www.mrliving.com.tw/officechair-milan-leather-tan.html"
+  },
+  {
+    "_id": {"$oid": "6706681fb60a975a0f91d9e5"},
+    "Image_matting": {"$oid": "670df1c59c6cf93371fb0688"},
+    "Image_matting_RMBG_2": {
+      "0": {"$oid": "673aec447ea23a084f134166"}
+    },
+    "asin": "B0BC1DD4WH",
+    "brand": "Maupvit2",
+    "color_options": ["米色", "黑色", "深質樸橡木。", "深核桃色", "輕盈鄉村橡木", "仿古棕色", "仿古橡木藤", "水洗灰色", "白色", "黃色"],
+    "category": "desk",
+    "description": "Some other information about Desk1...",
+    "image": "https://m.media-amazon.com/images/I/81JsjAoQnSL._AC_UL1000_.jpg",
+    "images": ["https://raw.githubusercontent.com/TWAnnoyingKid/ARFurnitureAppDatabase/main/FurnitureInfoData/Desk/Desk1/Img/Desk.jpg"],
+    "name": "Wooden Desk",
+    "model_url": "https://raw.githubusercontent.com/TWAnnoyingKid/AR_Furniture_App/main/Desk1.glb",
+    "price_string": "2999",
+    "size_options": ["90深 x 180寬 x 80高 公分"],
+    "star": "4.4",
+    "starNum": "1563 個評分",
+    "url": "https://woodmall.com.tw/shop/product/%E5%B0%88%E6%A5%AD%E6%9C%A8%E5%B7%A5%E7%94%A8-%E6%9D%BE%E6%9C%A8%E6%9C%A8%E5%B7%A5%E6%A1%8C/"
+  },
+  {
+    "_id": {"$oid": "6706681fb60a975a0f91d9e5"},
+    "Image_matting": {"$oid": "670df1c59c6cf93371fb0688"},
+    "Image_matting_RMBG_2": {
+      "0": {"$oid": "673aec447ea23a084f134166"}
+    },
+    "asin": "B0BC1DD4WH",
+    "brand": "Maupvit",
+    "color_options": ["米色", "黑色", "深質樸橡木。", "深核桃色", "輕盈鄉村橡木", "仿古棕色", "仿古橡木藤", "水洗灰色", "白色", "黃色"],
+    "category": "desk",
+    "description": "Some other information about Desk2...",
+    "image": "https://m.media-amazon.com/images/I/81JsjAoQnSL._AC_UL1000_.jpg",
+    "images": ["https://raw.githubusercontent.com/TWAnnoyingKid/ARFurnitureAppDatabase/main/FurnitureInfoData/Desk/Desk2/Img/Desk.jpg","https://raw.githubusercontent.com/TWAnnoyingKid/ARFurnitureAppDatabase/main/FurnitureInfoData/Desk/Desk2/Img/Desk2.jpg","https://raw.githubusercontent.com/TWAnnoyingKid/ARFurnitureAppDatabase/main/FurnitureInfoData/Desk/Desk2/Img/Desk3.jpg"],
+    "name": "Drawer Desk",
+    "model_url": "https://raw.githubusercontent.com/TWAnnoyingKid/AR_Furniture_App/main/Desk2.glb",
+    "price_string": "7999",
+    "size_options": ["61深 x 153寬 x 77高 公分"],
+    "star": "4.4",
+    "starNum": "1563 個評分",
+    "url": "https://www.cort.com/furniture-rental/Home-Office/Desks/P2050007"
+  },
+  {
+    "_id": {"$oid": "6706681fb60a975a0f91d9e5"},
+    "Image_matting": {"$oid": "670df1c59c6cf93371fb0688"},
+    "Image_matting_RMBG_2": {
+      "0": {"$oid": "673aec447ea23a084f134166"}
+    },
+    "asin": "B0BC1DD4WH",
+    "brand": "Maupvit",
+    "color_options": ["米色", "黑色", "深質樸橡木。", "深核桃色", "輕盈鄉村橡木", "仿古棕色", "仿古橡木藤", "水洗灰色", "白色", "黃色"],
+    "category": "drawer",
+    "description": "Some other information about Drawer1...",
+    "image": "https://m.media-amazon.com/images/I/81JsjAoQnSL._AC_UL1000_.jpg",
+    "images": ["https://raw.githubusercontent.com/TWAnnoyingKid/ARFurnitureAppDatabase/main/FurnitureInfoData/Drawer/Drawer1/Img/Drawer.jpg","https://raw.githubusercontent.com/TWAnnoyingKid/ARFurnitureAppDatabase/main/FurnitureInfoData/Drawer/Drawer1/Img/Drawer2.jpg","https://raw.githubusercontent.com/TWAnnoyingKid/ARFurnitureAppDatabase/main/FurnitureInfoData/Drawer/Drawer1/Img/Drawer3.jpg","https://raw.githubusercontent.com/TWAnnoyingKid/ARFurnitureAppDatabase/main/FurnitureInfoData/Drawer/Drawer1/Img/Drawer4.jpg"],
+    "name": "Wooden Drawer",
+    "model_url": "https://raw.githubusercontent.com/TWAnnoyingKid/AR_Furniture_App/main/Drawer1.glb",
+    "price_string": "1999",
+    "size_options": ["42深 x 50寬 x 58高 公分"],
+    "star": "4.4",
+    "starNum": "1563 個評分",
+    "url": "https://www.mrliving.com.tw/antony-nnightstand.html"
+  },
+  {
+    "_id": {"$oid": "6706681fb60a975a0f91d9e5"},
+    "Image_matting": {"$oid": "670df1c59c6cf93371fb0688"},
+    "Image_matting_RMBG_2": {
+      "0": {"$oid": "673aec447ea23a084f134166"}
+    },
+    "asin": "B0BC1DD4WH",
+    "brand": "Maupvit",
+    "color_options": ["米色", "黑色", "深質樸橡木。", "深核桃色", "輕盈鄉村橡木", "仿古棕色", "仿古橡木藤", "水洗灰色", "白色", "黃色"],
+    "category": "drawer",
+    "description": "Some other information about Drawer2...",
+    "image": "https://m.media-amazon.com/images/I/81JsjAoQnSL._AC_UL1000_.jpg",
+    "images": ["https://raw.githubusercontent.com/TWAnnoyingKid/ARFurnitureAppDatabase/main/FurnitureInfoData/Drawer/Drawer2/Img/Drawer.jpg","https://raw.githubusercontent.com/TWAnnoyingKid/ARFurnitureAppDatabase/main/FurnitureInfoData/Drawer/Drawer2/Img/Drawer2.jpg","https://raw.githubusercontent.com/TWAnnoyingKid/ARFurnitureAppDatabase/main/FurnitureInfoData/Drawer/Drawer2/Img/Drawer3.jpg"],
+    "name": "Tall Drawer",
+    "model_url": "https://raw.githubusercontent.com/TWAnnoyingKid/AR_Furniture_App/main/Drawer2.glb",
+    "price_string": "3999",
+    "size_options": ["42深 x 69寬 x 130高 公分"],
+    "star": "4.4",
+    "starNum": "1563 個評分",
+    "url": "https://www.wakefit.co/chest-drawers/engineered-wood-chest-drawers-moire/WCODMOIRE"
+  },
+  {
+    "_id": {"$oid": "6706681fb60a975a0f91d9e5"},
+    "Image_matting": {"$oid": "670df1c59c6cf93371fb0688"},
+    "Image_matting_RMBG_2": {
+      "0": {"$oid": "673aec447ea23a084f134166"}
+    },
+    "asin": "B0BC1DD4WH",
+    "brand": "Maupvit",
+    "color_options": ["米色", "黑色", "深質樸橡木。", "深核桃色", "輕盈鄉村橡木", "仿古棕色", "仿古橡木藤", "水洗灰色", "白色", "黃色"],
+    "category": "sofa",
+    "description": "Some other information about Sofa1...",
+    "image": "https://m.media-amazon.com/images/I/81JsjAoQnSL._AC_UL1000_.jpg",
+    "images": ["https://raw.githubusercontent.com/TWAnnoyingKid/ARFurnitureAppDatabase/main/FurnitureInfoData/Sofa/Sofa1/Img/Sofa.jpg"],
+    "name": "Worm Sofa",
+    "model_url": "https://raw.githubusercontent.com/TWAnnoyingKid/AR_Furniture_App/main/Sofa1.glb",
+    "price_string": "4999",
+    "size_options": ["86深 x 100寬 x 69高 公分"],
+    "star": "4.4",
+    "starNum": "1563 個評分",
+    "url": "https://www.yuda-shop.com.tw/h/ProductDetail?key=djfdu&productId=43504"
+  },
+  {
+    "_id": {"$oid": "6706681fb60a975a0f91d9e5"},
+    "Image_matting": {"$oid": "670df1c59c6cf93371fb0688"},
+    "Image_matting_RMBG_2": {
+      "0": {"$oid": "673aec447ea23a084f134166"}
+    },
+    "asin": "B0BC1DD4WH",
+    "brand": "Maupvit",
+    "color_options": ["米色", "黑色", "深質樸橡木。", "深核桃色", "輕盈鄉村橡木", "仿古棕色", "仿古橡木藤", "水洗灰色", "白色", "黃色"],
+    "category": "sofa",
+    "description": "Some other information about Sofa2...",
+    "image": "https://m.media-amazon.com/images/I/81JsjAoQnSL._AC_UL1000_.jpg",
+    "images": ["https://raw.githubusercontent.com/TWAnnoyingKid/ARFurnitureAppDatabase/main/FurnitureInfoData/Sofa/Sofa2/Img/Sofa.jpg","https://raw.githubusercontent.com/TWAnnoyingKid/ARFurnitureAppDatabase/main/FurnitureInfoData/Sofa/Sofa2/Img/Sofa2.jpg","https://raw.githubusercontent.com/TWAnnoyingKid/ARFurnitureAppDatabase/main/FurnitureInfoData/Sofa/Sofa2/Img/Sofa3.jpg","https://raw.githubusercontent.com/TWAnnoyingKid/ARFurnitureAppDatabase/main/FurnitureInfoData/Sofa/Sofa2/Img/Sofa4.jpg"],
+    "name": "Fabric Sofa",
+    "model_url": "https://raw.githubusercontent.com/TWAnnoyingKid/AR_Furniture_App/main/Sofa2.glb",
+    "price_string": "7999",
+    "size_options": ["91深 x 184寬 x 91高 公分"],
+    "star": "4.4",
+    "starNum": "1563 個評分",
+    "url": "https://www.theenglishsofacompany.co.uk/fabric-sofas/rochester-fabric/"
+  },
+  {
+    "_id": {"$oid": "6706681fb60a975a0f91d9e5"},
+    "Image_matting": {"$oid": "670df1c59c6cf93371fb0688"},
+    "Image_matting_RMBG_2": {
+      "0": {"$oid": "673aec447ea23a084f134166"}
+    },
+    "asin": "B0BC1DD4WH",
+    "brand": "Maupvit",
+    "color_options": ["米色", "黑色", "深質樸橡木。", "深核桃色", "輕盈鄉村橡木", "仿古棕色", "仿古橡木藤", "水洗灰色", "白色", "黃色"],
+    "category": "sofa",
+    "description": "Some other information about Sofa3...",
+    "image": "https://m.media-amazon.com/images/I/81JsjAoQnSL._AC_UL1000_.jpg",
+    "images": ["https://raw.githubusercontent.com/TWAnnoyingKid/ARFurnitureAppDatabase/main/FurnitureInfoData/Sofa/Sofa3/Img/1.jpg","https://raw.githubusercontent.com/TWAnnoyingKid/ARFurnitureAppDatabase/main/FurnitureInfoData/Sofa/Sofa3/Img/2.jpg","https://raw.githubusercontent.com/TWAnnoyingKid/ARFurnitureAppDatabase/main/FurnitureInfoData/Sofa/Sofa3/Img/3.jpg","https://raw.githubusercontent.com/TWAnnoyingKid/ARFurnitureAppDatabase/main/FurnitureInfoData/Sofa/Sofa3/Img/4.jpg","https://raw.githubusercontent.com/TWAnnoyingKid/ARFurnitureAppDatabase/main/FurnitureInfoData/Sofa/Sofa3/Img/5.jpg","https://raw.githubusercontent.com/TWAnnoyingKid/ARFurnitureAppDatabase/main/FurnitureInfoData/Sofa/Sofa3/Img/6.jpg","https://raw.githubusercontent.com/TWAnnoyingKid/ARFurnitureAppDatabase/main/FurnitureInfoData/Sofa/Sofa3/Img/7.jpg"],
+    "name": "Japan Style Sofa",
+    "model_url": "https://raw.githubusercontent.com/TWAnnoyingKid/AR_Furniture_App/main/Sofa3.glb",
+    "price_string": "4999",
+    "size_options": ["80深 x 190寬 x 85高 公分"],
+    "star": "4.4",
+    "starNum": "1563 個評分",
+    "url": "https://www.hdlife.com.tw/ItemInfo/21086"
+  }
+]
