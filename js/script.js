@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // 新增：載入並顯示產品資料
+    // 載入並顯示產品資料
     async function loadProducts() {
         const productListContainer = document.getElementById('product-list-container');
         if (!productListContainer) {
@@ -106,14 +106,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 `;
                 productListContainer.appendChild(productItem);
 
-                // 新增：為附圖添加點擊事件，更換主圖
+                // 附圖點擊更換主圖
                 const mainImageElement = productItem.querySelector('.product-main-image');
                 const galleryImages = productItem.querySelectorAll('.gallery-image');
 
-                // 將主圖的原始 src 保存起來，以便點擊其他附圖後可以恢復（如果需要）
-                // 或者直接將 images[0] 作為其中一個可點擊的選項
-                // 這裡我們讓附圖直接更新主圖
-
+                // 讓附圖直接更新主圖
                 galleryImages.forEach(galleryImg => {
                     galleryImg.addEventListener('click', () => {
                         if (mainImageElement) {
@@ -127,7 +124,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     });
                 });
 
-                // 新增：附圖庫左右箭頭滾動功能
+                // 附圖庫左右箭頭滾動
                 const galleryScrollContainer = productItem.querySelector('.product-image-gallery');
                 const prevArrowButton = productItem.querySelector('.prev-arrow');
                 const nextArrowButton = productItem.querySelector('.next-arrow');
@@ -166,8 +163,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     });
 
                     galleryScrollContainer.addEventListener('scroll', updateGalleryArrows);
-                    // 監聽圖片載入完成，以防初始時 scrollWidth 不準確 (對於動態載入大量圖片時更重要)
-                    // 簡單起見，這裡可以延遲一點再檢查一次，或者在圖片載入完成後調用
                     setTimeout(updateGalleryArrows, 500); 
                 }
             });
@@ -180,7 +175,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     loadProducts(); // 頁面載入時執行
 
-    // 新增：自動隱藏/顯示導覽列的邏輯
+    // 自動隱藏/顯示導覽列的邏輯
     const header = document.querySelector('header');
     let lastScrollTop = 0;
     const scrollThreshold = 5; // 滾動超過5px才觸發判斷，防止抖動
@@ -227,7 +222,7 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('主頁面 JavaScript 已載入。');
 });
 
-// 新增輔助函數：解析尺寸字串
+// 解析尺寸字串
 function parseProductDimensions(sizeOptionsArray) {
     const dimensions = { widthCm: null, heightCm: null, depthCm: null };
     if (!sizeOptionsArray || sizeOptionsArray.length === 0 || typeof sizeOptionsArray[0] !== 'string') {

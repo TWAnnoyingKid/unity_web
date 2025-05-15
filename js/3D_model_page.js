@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
             modelViewerElement.addEventListener('load', () => {
                 console.log('模型已載入事件觸發');
                 try {
-                    // 改用 getDimensions() 方法
+                    // getDimensions() 方法
                     const intrinsicDimensions = modelViewerElement.getDimensions(); 
                     
                     if (intrinsicDimensions) {
@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         modelViewerElement.scale = `${scaleX} ${scaleY} ${scaleZ}`;
                         console.log(`套用縮放比例: X=${scaleX}, Y=${scaleY}, Z=${scaleZ}`);
 
-                        // 新增：在設定縮放後更新攝影機取景
+                        // 在設定縮放後更新攝影機取景
                         modelViewerElement.updateFraming();
                         console.log('已調用 updateFraming() 來調整視窗大小。');
 
