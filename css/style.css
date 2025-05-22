@@ -308,3 +308,19 @@ footer p {
 .product-links a:hover {
     background-color: #808A56; /* 橄欖綠加深 */
 }
+
+/* 登入按鈕樣式 */
+.login-btn {
+    background-color: #979D6E; /* 橄欖綠色背景 */
+    color: white !important; /* 確保文字為白色 */
+    padding: 8px 15px !important; /* 調整內邊距使其看起來像按鈕 */
+    border-radius: 4px; /* 圓角邊框 */
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.login-btn:hover {
+    background-color: #858C61; /* 滑鼠懸停時變暗 */
+    color: white !important;
+}
