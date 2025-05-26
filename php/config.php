@@ -9,7 +9,7 @@ $CONFIG = [
     // API 服務器設置
     'api' => [
         'host' => '192.168.1.105',  // API 服務器主機名/IP
-        'port' => 5006,             // API 服務器端口
+        'port' => 5008,             // API 服務器端口
         'protocol' => 'http',       // 協議（http 或 https）
         'base_url' => null,         // 會被自動生成
     ],
@@ -21,8 +21,8 @@ $CONFIG = [
             'host' => '192.168.0.106',
             'port' => 27017,
             'dbname' => 'users',
-            'username' => '',  // 如需認證請填寫
-            'password' => '',  // 如需認證請填寫
+            'username' => '',  
+            'password' => '', 
             'connection_string' => null  // 會被自動生成
         ],
         

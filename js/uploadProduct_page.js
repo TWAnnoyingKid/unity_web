@@ -150,12 +150,7 @@ document.addEventListener('DOMContentLoaded', () => {
             showLoading();
 
             const formData = new FormData();
-            const productName = document.getElementById('productName').value;
             const textPrompt = document.getElementById('textPrompt')?.value || '';
-
-            if (productName) {
-                formData.append('productName', productName);
-            }
             
             if (textPrompt) {
                 formData.append('textPrompt', textPrompt);
@@ -178,7 +173,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             try {
                 if (CONFIG.debug) {
-                    console.log('正在連接到處理服務...');
+                    console.log('正在連接到處理服務.....');
                 }
                 
                 const response = await fetch(backendEndpoint, {
@@ -205,10 +200,12 @@ document.addEventListener('DOMContentLoaded', () => {
                         // 完全隱藏處理結果區域，避免白色空間
                         hideProcessedResults();
                         
-                        // 記錄當前模型信息
+                        // **【修改部分】** 記錄當前模型信息，包含產品序號和資料夾資訊
                         currentModelInfo = {
                             name: results.product_name,
-                            url: `${API_BASE_URL}${modelFiles[0].url}`
+                            url: `${API_BASE_URL}${modelFiles[0].url}`,
+                            product_id: results.product_id || modelFiles[0].product_id,  // 產品序號
+                            product_folder: results.product_folder || modelFiles[0].product_folder  // 資料夾名稱
                         };
                         
                         // 設置 model-viewer 源
@@ -226,6 +223,16 @@ document.addEventListener('DOMContentLoaded', () => {
                                     block: 'start'
                                 });
                             }, 500);
+                        }
+                        
+                        // **【新增部分】** 在控制台記錄產品資訊
+                        if (CONFIG.debug) {
+                            console.log('產品資訊:', {
+                                name: currentModelInfo.name,
+                                product_id: currentModelInfo.product_id,
+                                product_folder: currentModelInfo.product_folder,
+                                model_url: currentModelInfo.url
+                            });
                         }
                     } else {
                         showProcessedResults();
@@ -255,7 +262,118 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 上傳商品到產品資料庫
+    // **【修改部分】** 創建商品資訊輸入對話框
+    function createProductInfoModal() {
+        // 創建模態對話框結構
+        const modal = document.createElement('div');
+        modal.className = 'product-info-modal';
+        modal.innerHTML = `
+            <div class="modal-overlay">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>輸入商品詳細資訊</h3>
+                        <button type="button" class="modal-close">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="productInfoForm">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="modalProductName">商品名稱 *</label>
+                                    <input type="text" id="modalProductName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="modalProductPrice">商品價格 (元) *</label>
+                                    <input type="number" id="modalProductPrice" min="0" step="0.01" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="modalProductCategory">商品種類 *</label>
+                                    <select id="modalProductCategory" required>
+                                        <option value="">請選擇...</option>
+                                        <option value="chair">椅子</option>
+                                        <option value="table">桌子</option>
+                                        <option value="sofa">沙發</option>
+                                        <option value="bed">床具</option>
+                                        <option value="cabinet">櫃子</option>
+                                        <option value="decoration">裝飾品</option>
+                                        <option value="lighting">燈具</option>
+                                        <option value="storage">收納用品</option>
+                                        <option value="other">其他</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="modalProductUrl">商品網址 (選填)</label>
+                                    <input type="url" id="modalProductUrl" placeholder="https://...">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="modalProductDescription">商品描述</label>
+                                <textarea id="modalProductDescription" rows="3" placeholder="請描述商品特色、材質、用途等..."></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>商品尺寸 (cm)</label>
+                                <div class="size-inputs">
+                                    <div class="size-input-group">
+                                        <label for="modalProductWidth">寬</label>
+                                        <input type="number" id="modalProductWidth" min="0" step="0.1" placeholder="0.0">
+                                    </div>
+                                    <div class="size-input-group">
+                                        <label for="modalProductHeight">高</label>
+                                        <input type="number" id="modalProductHeight" min="0" step="0.1" placeholder="0.0">
+                                    </div>
+                                    <div class="size-input-group">
+                                        <label for="modalProductDepth">深</label>
+                                        <input type="number" id="modalProductDepth" min="0" step="0.1" placeholder="0.0">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="modalProductImages">商品圖片 (可多選)</label>
+                                <input type="file" id="modalProductImages" multiple accept="image/*">
+                                <div id="modalImagePreview" class="modal-image-preview"></div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn-secondary" id="modalCancelBtn">取消</button>
+                        <button type="button" class="btn-main" id="modalSaveBtn">儲存商品</button>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        document.body.appendChild(modal);
+
+        // 處理圖片預覽
+        const modalImagesInput = document.getElementById('modalProductImages');
+        const modalImagePreview = document.getElementById('modalImagePreview');
+        
+        modalImagesInput.addEventListener('change', (event) => {
+            modalImagePreview.innerHTML = '';
+            const files = Array.from(event.target.files);
+            
+            files.forEach((file, index) => {
+                if (file.type.startsWith('image/')) {
+                    const reader = new FileReader();
+                    reader.onload = (e) => {
+                        const previewItem = document.createElement('div');
+                        previewItem.className = 'modal-preview-item';
+                        previewItem.innerHTML = `
+                            <img src="${e.target.result}" alt="預覽圖片">
+                            <button type="button" class="remove-preview-btn" onclick="this.parentElement.remove()">&times;</button>
+                        `;
+                        modalImagePreview.appendChild(previewItem);
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+        });
+
+        return modal;
+    }
+
+    // **【修改部分】** 上傳商品到產品資料庫
     if (uploadProductBtn) {
         uploadProductBtn.addEventListener('click', async () => {
             if (!currentModelInfo) {
@@ -263,65 +381,128 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
             
-            const productName = document.getElementById('productName').value || currentModelInfo.name;
+            // 創建並顯示商品資訊輸入對話框
+            const modal = createProductInfoModal();
             
-            try {
-                uploadProductBtn.disabled = true;
-                uploadProductBtn.textContent = '上傳中...';
-                
-                const response = await fetch(`${API_BASE_URL}/api/products`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        productName: productName,
-                        modelUrl: currentModelInfo.url
-                    })
-                });
-                
-                if (!response.ok) {
-                    const errorData = await response.json().catch(() => ({ message: '發生未知錯誤' }));
-                    throw new Error(errorData.message || '上傳失敗');
+            // 處理對話框事件
+            const modalCancelBtn = modal.querySelector('#modalCancelBtn');
+            const modalCloseBtn = modal.querySelector('.modal-close');
+            const modalSaveBtn = modal.querySelector('#modalSaveBtn');
+            
+            // 關閉對話框
+            const closeModal = () => {
+                document.body.removeChild(modal);
+            };
+            
+            modalCancelBtn.addEventListener('click', closeModal);
+            modalCloseBtn.addEventListener('click', closeModal);
+            
+            // 點擊覆蓋層關閉對話框
+            modal.querySelector('.modal-overlay').addEventListener('click', (e) => {
+                if (e.target === modal.querySelector('.modal-overlay')) {
+                    closeModal();
                 }
-                
-                const result = await response.json();
-                
-                alert(`商品 "${productName}" 上傳成功！`);
-                
-                // 成功上傳後可以選擇清空表單
-                if (confirm('是否要清空表單以上傳新商品？')) {
-                    // 清空表單
-                    document.getElementById('productName').value = '';
-                    if (document.getElementById('textPrompt')) {
-                        document.getElementById('textPrompt').value = '';
+            });
+            
+            // 儲存商品
+            modalSaveBtn.addEventListener('click', async () => {
+                try {
+                    modalSaveBtn.disabled = true;
+                    modalSaveBtn.textContent = '儲存中...';
+                    
+                    // 收集表單資料
+                    const formData = new FormData();
+                    
+                    // 基本資訊
+                    formData.append('name', document.getElementById('modalProductName').value);
+                    formData.append('price', parseFloat(document.getElementById('modalProductPrice').value));
+                    formData.append('category', document.getElementById('modalProductCategory').value);
+                    formData.append('description', document.getElementById('modalProductDescription').value);
+                    formData.append('url', document.getElementById('modalProductUrl').value);
+                    
+                    // **【修改部分】** 添加產品序號和資料夾資訊
+                    if (currentModelInfo.product_id) {
+                        formData.append('product_id', currentModelInfo.product_id);
                     }
-                    selectedFiles = [];
-                    imagePreviewContainer.innerHTML = '<p>未選擇任何圖片。</p>';
-                    productImagesInput.value = null;
-                    
-                    // 清空結果
-                    clearResults();
-                    
-                    // 重置當前模型信息
-                    currentModelInfo = null;
-                    
-                    // 在移動設備上滾動回表單頂部
-                    if (window.innerWidth <= 768) {
-                        document.querySelector('.upload-form-section').scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
+                    if (currentModelInfo.product_folder) {
+                        formData.append('product_folder', currentModelInfo.product_folder);
                     }
+                    
+                    // 尺寸資訊
+                    const width = document.getElementById('modalProductWidth').value;
+                    const height = document.getElementById('modalProductHeight').value;
+                    const depth = document.getElementById('modalProductDepth').value;
+                    
+                    const sizeOptions = {
+                        width: width ? parseFloat(width) : null,
+                        height: height ? parseFloat(height) : null,
+                        depth: depth ? parseFloat(depth) : null
+                    };
+                    formData.append('size_options', JSON.stringify(sizeOptions));
+                    
+                    // 模型資訊
+                    formData.append('model_url', currentModelInfo.url);
+                    
+                    // 商品圖片
+                    const imageFiles = document.getElementById('modalProductImages').files;
+                    for (let i = 0; i < imageFiles.length; i++) {
+                        formData.append('images[]', imageFiles[i]);
+                    }
+                    
+                    // 發送到後端
+                    const response = await fetch('../php/save_product.php', {
+                        method: 'POST',
+                        body: formData,
+                        credentials: 'same-origin'
+                    });
+                    
+                    if (!response.ok) {
+                        throw new Error(`HTTP 錯誤: ${response.status}`);
+                    }
+                    
+                    const result = await response.json();
+                    
+                    if (result.success) {
+                        alert(`商品 "${result.product.name}" 儲存成功！`);
+                        closeModal();
+                        
+                        // 成功上傳後詢問是否清空表單
+                        if (confirm('是否要清空表單以上傳新商品？')) {
+                            // 清空表單
+                            document.getElementById('productName').value = '';
+                            if (document.getElementById('textPrompt')) {
+                                document.getElementById('textPrompt').value = '';
+                            }
+                            selectedFiles = [];
+                            imagePreviewContainer.innerHTML = '<p>未選擇任何圖片。</p>';
+                            productImagesInput.value = null;
+                            
+                            // 清空結果
+                            clearResults();
+                            
+                            // 重置當前模型信息
+                            currentModelInfo = null;
+                            
+                            // 在移動設備上滾動回表單頂部
+                            if (window.innerWidth <= 768) {
+                                document.querySelector('.upload-form-section').scrollIntoView({
+                                    behavior: 'smooth',
+                                    block: 'start'
+                                });
+                            }
+                        }
+                    } else {
+                        throw new Error(result.message || '儲存商品失敗');
+                    }
+                    
+                } catch (error) {
+                    console.error('儲存商品失敗:', error);
+                    alert(`儲存商品失敗: ${error.message}`);
+                } finally {
+                    modalSaveBtn.disabled = false;
+                    modalSaveBtn.textContent = '儲存商品';
                 }
-                
-            } catch (error) {
-                console.error('上傳商品失敗:', error);
-                alert(`上傳商品失敗: ${error.message}`);
-            } finally {
-                uploadProductBtn.disabled = false;
-                uploadProductBtn.textContent = '上傳此商品';
-            }
+            });
         });
     }
 });
